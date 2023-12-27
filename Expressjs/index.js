@@ -17,8 +17,9 @@ app.get('/',(req,res)=>{
     // res.send('<h2>this is home page</h2>');
 })
 
+let todos = ['cat','dog','tiger'];
 app.get('/home',(req,res)=>{
-    res.render('home');
+    res.render('home',{todos});
 })
 
 // app.get('/new',(req,res)=>{
