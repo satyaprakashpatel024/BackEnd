@@ -11,11 +11,14 @@ app.set('view engine','ejs');
 
                             // static routing 
 
-
 app.get('/',(req,res)=>{
     let random = Math.random()*100;
-    res.render('home',{random});
+    res.render('index',{random});
     // res.send('<h2>this is home page</h2>');
+})
+
+app.get('/home',(req,res)=>{
+    res.render('home');
 })
 
 // app.get('/new',(req,res)=>{
