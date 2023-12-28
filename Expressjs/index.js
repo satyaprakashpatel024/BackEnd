@@ -11,13 +11,13 @@ app.set('view engine','ejs');
 
                             // static routing 
 
-app.get('/',(req,res)=>{
+app.get('/index',(req,res)=>{
     let random = Math.random()*100;
     res.render('index',{random});
     // res.send('<h2>this is home page</h2>');
 })
 
-let todos = ['cat','dog','tiger'];
+let todos = ['chuhiya(rat)','dog','tiger'];
 app.get('/home',(req,res)=>{
     res.render('home',{todos});
 })
@@ -53,3 +53,27 @@ app.listen(3000,()=>{
 //     // console.log(req.query);
 //     res.send(`${firstName} ${lastName}`)
 // })
+
+                                // get and post
+// get method
+// app.get('/get',(req,res)=>{
+//     res.render('getform');
+// })
+
+// app.get('/user',(req,res)=>{
+//     let {userName,userNumber} = req.query;
+//     res.send(`${userName}  ${userNumber}`);
+// })
+
+// post method
+
+app.get('/',(req,res)=>{
+    res.render('postform');
+})
+
+app.post('/user',(req,res)=>{
+    let {userName,userNumber} = req.query;
+    // res.send(`${userName}  ${userNumber}`);
+    console.log(req.query);
+    res.send("post form!!!!!!!!!!!!!!!!");
+})
