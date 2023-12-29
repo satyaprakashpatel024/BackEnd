@@ -73,6 +73,7 @@ app.get('/',(req,res)=>{
 
 app.post('/user',(req,res)=>{
     let {userName,userNumber} = req.query;
+    // get form method
     // res.send(`${userName}  ${userNumber}`);
     console.log(`${userName}  ${userNumber}`);
     res.send("post form!!!!!!!!!!!!!!!!");
