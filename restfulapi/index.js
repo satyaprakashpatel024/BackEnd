@@ -34,7 +34,7 @@ let arr = [
 		id: 5,
 		userName: "poonam",
 		comment: " mai kaha bolti hu",
-	},
+	}
 ];
 
 app.get("/", (req, res) => {
