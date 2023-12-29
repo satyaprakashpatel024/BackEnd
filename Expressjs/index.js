@@ -38,7 +38,7 @@ app.listen(3000,()=>{
     console.log("Server is running at http://localhost:3000");
 })
 
-                    // dynamic routing
+                                // dynamic routing
 
 // app.get('/:key',(req,res)=>{
 //     let {key} = req.params;
@@ -74,6 +74,6 @@ app.get('/',(req,res)=>{
 app.post('/user',(req,res)=>{
     let {userName,userNumber} = req.query;
     // res.send(`${userName}  ${userNumber}`);
-    console.log(req.query);
+    console.log(`${userName}  ${userNumber}`);
     res.send("post form!!!!!!!!!!!!!!!!");
 })
