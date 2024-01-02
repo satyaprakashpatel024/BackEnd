@@ -8,6 +8,10 @@ app.set('view engine','ejs');
 //     res.send("<h2>hello local Server</h2>");
 // })
 
+// http.get(('/home'),(req,res)=>{
+//     res.send("<h2>hello local Server</h2>");
+// })
+
 
                             // static routing 
 
