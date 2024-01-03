@@ -34,7 +34,7 @@ let arr = [
 		id: 5,
 		userName: "poonam",
 		comment: " mai kaha bolti hu",
-	}
+	},
 ];
 
 app.get("/", (req, res) => {
@@ -58,15 +58,20 @@ app.post("/blog", (req, res) => {
 });
 
 app.get("/blog/:id", (req, res) => {
-	console.log(req.params, "rrrr");
-
 	let { id } = req.params;
-
 	let SearchC = arr.filter((key) => {
 		return key.id == id;
 	});
-	console.log(SearchC);
 	res.render("show", { SearchC });
+});
+
+app.get("/blog/:id/edit", (req, res) => {
+	let { id } = req.params;
+	let updateData = arr.find((key)=>{
+		return key.id == id;
+	})
+
+	res.render('edit',{updateData});
 });
 
 let port = 3000;

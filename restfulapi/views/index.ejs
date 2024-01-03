@@ -7,10 +7,12 @@
 	</head>
 	<body>
 		<% for(let i of arr){ %>
+
 		<h2>ID : <%=i.id %></h2>
 		<h3>UserName : <%= i.userName %></h3>
 		<p>Comment : <%= i.comment %></p>
         <a href="/blog/<%= i.id %>">Show</a>
+		<a href="/blog/<%= i.id %>/edit">Edit</a>
 
 		<% } %>
 	</body>
