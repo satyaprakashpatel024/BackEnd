@@ -9,7 +9,8 @@
     <fieldset>
         <legend>form</legend>
         <form action="/blog/<%=updateData.id%>?_method=PATCH" method="POST">
-            <input type="text" value="comment : <%= updateData.comment %>" name="comment"/>
+            <span>comment : </span>
+            <input type="text" value="<%= updateData.comment %>" name="comment"/>
             <button type="submit">submit</button>
         </form>
     </fieldset>

@@ -5,6 +5,7 @@ let methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 app.set("view engine", "ejs");
 
+// dummy data
 let arr = [
 	{
 		id: 0,
@@ -38,18 +39,22 @@ let arr = [
 	},
 ];
 
+// get method : home 
 app.get("/", (req, res) => {
 	res.send("this is home file");
 });
 
+// get method : render file(retriving data)
 app.get("/blog", (req, res) => {
 	res.render("index", { arr });
 });
 
+// showing form to add new data : 
 app.get("/blog/new", (req, res) => {
 	res.render("new");
 });
 
+// sending data to server post method to add new data
 app.post("/blog", (req, res) => {
 	console.log(req.body);
 	let id = arr.length;
@@ -58,6 +63,7 @@ app.post("/blog", (req, res) => {
 	res.redirect("/blog");
 });
 
+// rendering particular id
 app.get("/blog/:id", (req, res) => {
 	let { id } = req.params;
 	let SearchC = arr.filter((key) => {
@@ -66,6 +72,7 @@ app.get("/blog/:id", (req, res) => {
 	res.render("show", { SearchC });
 });
 
+// update the data : update form 
 app.get("/blog/:id/edit", (req, res) => {
 	let { id } = req.params;
 	let updateData = arr.find((key)=>{
@@ -74,8 +81,9 @@ app.get("/blog/:id/edit", (req, res) => {
 	res.render('edit',{updateData});
 });
 
+// modifying the updated data 
 app.patch('/blog/:id',(req,res)=>{
-	let {id}=req.params;
+	let {id}=req.params; //
 	let editedData = arr.find((c)=> c.id==id);
 	let {comment} = req.body;
 	editedData.comment = comment;
