@@ -1,7 +1,8 @@
 let express = require("express");
 let app = express();
 app.use(express.urlencoded({ extended: true }));
-
+let methodOverride = require('method-override')
+app.use(methodOverride('_method'))
 app.set("view engine", "ejs");
 
 let arr = [
@@ -70,9 +71,17 @@ app.get("/blog/:id/edit", (req, res) => {
 	let updateData = arr.find((key)=>{
 		return key.id == id;
 	})
-	// console.log(arr[id]);
 	res.render('edit',{updateData});
 });
+
+app.patch('/blog/:id',(req,res)=>{
+	let {id}=req.params;
+	let editedData = arr.find((c)=> c.id==id);
+	let {comment} = req.body;
+	editedData.comment = comment;
+	res.redirect('/blog');
+})
+
 
 let port = 3000;
 app.listen(port, () => {
