@@ -70,7 +70,7 @@ app.get("/blog/:id/edit", (req, res) => {
 	let updateData = arr.find((key)=>{
 		return key.id == id;
 	})
-
+	// console.log(arr[id]);
 	res.render('edit',{updateData});
 });
 
