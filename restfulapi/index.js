@@ -90,7 +90,17 @@ app.patch('/blog/:id',(req,res)=>{
 	res.redirect('/blog');
 })
 
+// deleting data
+app.delete('/blog/:id',(req,res)=>{
+	let {id} = req.params;
+	let NewArr = arr.filter((key)=>{
+		return key.id != id;
+	})
+	arr = NewArr;
+	res.redirect('/blog');
+})
 
+// creating server
 let port = 3000;
 app.listen(port, () => {
 	console.log(`local server is running at http://localhost:${port}`);
