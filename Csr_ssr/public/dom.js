@@ -11,8 +11,5 @@ send();
 
 $("#btn").on("click", () => {
 	let value = $("#inp").val();
-	// $("#inp").val() = '';
-	console.log(value);
-
 	$.post("/todo", { value }, () => {});
 });
