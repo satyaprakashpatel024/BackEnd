@@ -1,8 +1,8 @@
 let express = require("express");
 let app = express();
 app.use(express.urlencoded({ extended: true }));
-let methodOverride = require('method-override')
-app.use(methodOverride('_method'))
+let methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
 
 // dummy data
@@ -49,7 +49,7 @@ app.get("/blog", (req, res) => {
 	res.render("index", { arr });
 });
 
-// showing form to add new data : 
+// showing form to add new data : create/insert
 app.get("/blog/new", (req, res) => {
 	res.render("new");
 });
@@ -84,7 +84,7 @@ app.get("/blog/:id/edit", (req, res) => {
 // modifying the updated data 
 app.patch('/blog/:id',(req,res)=>{
 	let {id}=req.params; //
-	let editedData = arr.find((c)=> c.id==id);
+	let editedData = arr.find((c)=> {return c.id==id});
 	let {comment} = req.body;
 	editedData.comment = comment;
 	res.redirect('/blog');
