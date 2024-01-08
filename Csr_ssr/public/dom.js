@@ -1,4 +1,5 @@
 function send() {
+	$('#list').empty();
 	$.get("/todo", (data) => {
 		console.log(data);
 		for (let item of data) {
@@ -6,10 +7,12 @@ function send() {
 		}
 	});
 }
-
 send();
 
 $("#btn").on("click", () => {
 	let value = $("#inp").val();
-	$.post("/todo", { value }, () => {});
+	$.post("/todo", { value }, () => {
+		$("#inp").val('');
+	});
+	send();
 });
