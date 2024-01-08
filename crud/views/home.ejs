@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD : R-> Retrive operation</title>
+    <title>CRUD : R->retrive</title>
 </head>
 <body>
-    <% for (let item of arr ) {%>
-        <h1>city id : <%= item.id%></h1>
-        <h1>city name : <%= item.city%></h1>
-        <h1>message : <%= item.message%></h1>
-        <a href="#">edit</a>
-    <%}%>
+    <%for(let i of arr){%>
+        <h2> ID : <%=i.id%></h2>
+        <h3> Name : <%=i.leader%></h3>
+        <h4> Age : <%=i.message%></h24>
+        <br><br>
+        <fieldset style="display: inline;">
+        <a href="/home/<%=i.id%>" style="text-decoration:none">show</a>
+        </fieldset>
+        <fieldset style="display: inline;">
+        <a href="/home/<%=i.id%>/edit" style="text-decoration: none;">edit</a>
+        </fieldset>
+    
+        <fieldset style="display: inline;">
+            <form action="/home/<%=i.id%>?_method=DELETE" method="post">
+                <button>delete</button>
+            </form>
+        </fieldset>
+        <%}%>
 </body>
 </html>

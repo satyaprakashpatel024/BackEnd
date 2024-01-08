@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD : U->update</title>
+</head>
+<body>
+    <fieldset>
+        <legend>form</legend>
+        <form action="/home/<%=updateData.id%>?_method=PATCH" method="post">
+            <span>old message : <%= updateData.message %></span>
+            <br><br>
+            <span>New Message : </span>
+            <input type="text" name="message" value="<%= updateData.message%>" placeholder="enter your message"/>
+            <button type="submit">submit</button>
+        </form>
+    </fieldset>
+</body>
+</html>
