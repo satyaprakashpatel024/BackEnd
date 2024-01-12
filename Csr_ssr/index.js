@@ -10,9 +10,10 @@ let arr = [1,2,3,4,5,'hello','hiii'];
 
 // this is automatically called by javascript 
 app.get('/todo',(req,res)=>{
+    // if request is sent by javascript then it is in the form of xhr
     if(req.xhr){
         res.json(arr);
-    }else{
+    }else{ // if request is sent by user or browser then this id simple request
         res.render('todo',{arr});
     }
 })
